@@ -9,10 +9,8 @@ var { User } = require('../models/user.model');
 
 //create user
 router.post('/', (req, res) => {
-  //var userBody = _.pick(req.body, ['email', 'password', 'name', 'nric', 'contact', 'firstName', 'lastName', 'address']);
+  console.log(req.body);
   var user = new User(req.body);
-  //console.log(userBody);
-  //save user
   user.save().then((data) => {
     res.status(200).send(data);
   }).catch((e) => {

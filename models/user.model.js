@@ -9,7 +9,6 @@ const secretPass = "abc123"
 var UserSchema = new mongoose.Schema({
     email: {
         type: String,
-        required: true,
         trim: true,
         minlength: 1,
         unique: true,
@@ -20,29 +19,23 @@ var UserSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        require: true,
         minlength: 6
     },
-    firstName: {
+    firstname: {
         type: String,
-        require: true,
         minlength: 1
     },
-    lastName: {
+    lastname: {
         type: String,
-        require: true,
+        minlength: 1
+    },
+    address: {
+        type: String,
         minlength: 1
     },
     nric: {
         type: String,
         trim: true,
-        require: true,
-        minlength: 1
-    },
-    address: {
-        type: String,
-        trim: true,
-        require: true,
         minlength: 1
     },
     designation: {
@@ -51,9 +44,11 @@ var UserSchema = new mongoose.Schema({
     department: {
         type: String,
     },
+    nationality: {
+        type: String,
+    },
     contact: {
         type: String,
-        require: true,
         minlength: 6
     },
     pm: {
@@ -63,6 +58,15 @@ var UserSchema = new mongoose.Schema({
         type: String,
     },
     group: {
+        type: String,
+    },
+    level1app: {
+        type: String,
+    },
+    level2app: {
+        type: String,
+    },
+    leaveperyear: {
         type: String,
     },
     tokens: [{
