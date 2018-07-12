@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const _ = require('lodash');
 const bcrypt = require('bcryptjs');
-//var { authenticate } = require('../middleware/authenticate');
+var { authenticate } = require('../middleware/authenticate');
 
 var { User } = require('../models/user.model');
 
@@ -33,7 +33,7 @@ router.post('/login', (req, res) => {
 });
 
 //get current user
-router.get('/getuser', (req, res) => {
+router.get('/getuser', authenticate,(req, res) => {
   var id = req.user._id;
   User.findByUserId(id).then((user) => {
     res.status(200).send(user);
