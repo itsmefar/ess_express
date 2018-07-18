@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 
 var { mongoose } = require('./db/mongoose');
 var UserRoutes = require('./routes/user');
+var LeaveRoutes = require('./routes/leave');
 
 var app = express();
 const port = process.env.PORT || 3000;
@@ -20,6 +21,7 @@ app.use(function (req, res, next) {
 });
 
 app.use('/users', UserRoutes);
+app.use('/leave', LeaveRoutes);
 
 app.listen(3000, () => {
   console.log('started on port ' + port)
